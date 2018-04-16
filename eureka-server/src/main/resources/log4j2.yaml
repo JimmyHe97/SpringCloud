@@ -1,0 +1,30 @@
+Configuration:
+  status: INFO
+
+  Appenders:
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"
+    RollingFile:
+      name: RollingFile
+      ignoreExceptions: false
+      fileName: /eureka-server/eureka-server.log
+      filePattern: /eureka-server/eureka-server%d{yyyy-MM-dd-HH-mm}.log
+      PatternLayout:
+        Pattern: "%d{yyyy/MM/dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"
+      Policies:
+        SizeBasedTriggeringPolicy:
+          size: 10MB
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        ref: CONSOLE
+    Logger:
+      level: trace
+      name: "pers.jimmy.server"
+      AppenderRef:
+        ref: RollingFile
