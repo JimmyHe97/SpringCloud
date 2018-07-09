@@ -7,12 +7,12 @@ services:
           - 8761:8761
         volumes:
           - "/home/hexiang/SpringCloud/logs/eureka-server:/eureka-server"
-    eureka-client-1:
+    eureka-client:
         image: jimmy/eureka-client
         restart: always
         ports: 
           - 8762:8762
-    eureka-client-2:
+    eureka-client:
         image: jimmy/eureka-client
         restart: always
         ports:
